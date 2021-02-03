@@ -1,6 +1,6 @@
 package com.dev.cinema.exception;
 
-public class AuthenticationException extends Throwable {
+public class AuthenticationException extends Exception {
     public AuthenticationException(String message) {
         super(message);
     }

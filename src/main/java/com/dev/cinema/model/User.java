@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-    private String loginByEmail;
+    private String email;
     private String password;
     private byte[] salt;
 
@@ -27,11 +27,11 @@ public class User {
     }
 
     public String getEmail() {
-        return loginByEmail;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.loginByEmail = email;
+        this.email = email;
     }
 
     public String getPassword() {
@@ -54,8 +54,7 @@ public class User {
     public String toString() {
         return "User{"
                 + "id=" + id
-                + ", email='" + loginByEmail + '\''
-                + ", password='" + password + '\''
+                + ", email='" + email + '\''
                 + '}';
     }
 }
