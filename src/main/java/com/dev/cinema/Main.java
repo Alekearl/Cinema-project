@@ -10,6 +10,7 @@ import com.dev.cinema.service.AuthenticationService;
 import com.dev.cinema.service.CinemaHallService;
 import com.dev.cinema.service.MovieService;
 import com.dev.cinema.service.MovieSessionService;
+import com.dev.cinema.service.ShoppingCartService;
 import com.dev.cinema.service.UserService;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,28 +20,40 @@ public class Main {
 
     public static void main(String[] args) throws AuthenticationException {
         Movie movie = new Movie();
+        Movie movieTwo = new Movie();
         movie.setTitle("Kingdom of Heaven");
+        movieTwo.setTitle("Hidden figures");
         movie.setDescription("War and peace at middleeast.");
+        movieTwo.setDescription("Story about work");
         MovieService movieService = (MovieService) injector.getInstance(MovieService.class);
         movieService.add(movie);
+        movieService.add(movieTwo);
 
         movieService.getAll().forEach(System.out::println);
 
         CinemaHall cinemaHall = new CinemaHall();
+        CinemaHall cinemaHallTwo = new CinemaHall();
         cinemaHall.setCapacity(250);
+        cinemaHallTwo.setCapacity(150);
         CinemaHallService cinemaHallService =
                 (CinemaHallService) injector.getInstance(CinemaHallService.class);
         cinemaHallService.add(cinemaHall);
+        cinemaHallService.add(cinemaHallTwo);
 
         cinemaHallService.getAll().forEach(System.out::println);
 
         MovieSession movieSession = new MovieSession();
+        MovieSession movieSessionTwo = new MovieSession();
         movieSession.setMovie(movie);
+        movieSessionTwo.setMovie(movieTwo);
         movieSession.setCinemaHall(cinemaHall);
+        movieSessionTwo.setCinemaHall(cinemaHallTwo);
         movieSession.setShowTime(LocalDateTime.of(2021, 1, 2, 14, 30));
+        movieSessionTwo.setShowTime(LocalDateTime.of(2021, 2, 10, 18, 30));
         MovieSessionService movieSessionService =
                 (MovieSessionService) injector.getInstance(MovieSessionService.class);
         movieSessionService.add(movieSession);
+        movieSessionService.add(movieSessionTwo);
         System.out.println(movieSessionService
                 .findAvailableSessions(movie.getId(), LocalDate.now()));
 
@@ -60,5 +73,10 @@ public class Main {
                 (AuthenticationService) injector.getInstance(AuthenticationService.class);
         authenticationService.register("third@gmail.com", "some333");
         System.out.println(authenticationService.login("third@gmail.com", "some333"));
+        ShoppingCartService shoppingCartService =
+                (ShoppingCartService) injector.getInstance(ShoppingCartService.class);
+        shoppingCartService.registerNewShoppingCart(user);
+        shoppingCartService.registerNewShoppingCart(userTwo);
+        shoppingCartService.addSession(movieSessionTwo, userTwo);
     }
 }
