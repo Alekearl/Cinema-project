@@ -15,13 +15,11 @@ import javax.persistence.Table;
 @Table(name = "shopping_cart")
 public class ShoppingCart {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToMany
     private List<Ticket> tickets;
     @OneToOne
     @MapsId
-    @JoinColumn(name = "shopping_cart_id")
     private User user;
 
     public Long getId() {
