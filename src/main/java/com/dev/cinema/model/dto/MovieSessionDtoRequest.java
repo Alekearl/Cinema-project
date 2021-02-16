@@ -2,7 +2,6 @@ package com.dev.cinema.model.dto;
 
 public class MovieSessionDtoRequest {
     private Long movieId;
-    private String movieTitle;
     private Long cinemaHallId;
     private String showTime;
 
@@ -12,14 +11,6 @@ public class MovieSessionDtoRequest {
 
     public void setMovieId(Long movieId) {
         this.movieId = movieId;
-    }
-
-    public String getMovieTitle() {
-        return movieTitle;
-    }
-
-    public void setMovieTitle(String movieTitle) {
-        this.movieTitle = movieTitle;
     }
 
     public Long getCinemaHallId() {

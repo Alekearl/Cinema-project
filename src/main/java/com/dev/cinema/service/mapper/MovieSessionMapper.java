@@ -25,6 +25,7 @@ public class MovieSessionMapper {
         MovieSessionDtoResponse response = new MovieSessionDtoResponse();
         response.setId(movieSession.getId());
         response.setMovieTitle(movieSession.getMovie().getTitle());
+        response.setMovieId(movieSession.getMovie().getId());
         response.setShowTime(movieSession.getShowTime().toString());
         response.setCinemaHallId(movieSession.getCinemaHall().getId());
         return response;
