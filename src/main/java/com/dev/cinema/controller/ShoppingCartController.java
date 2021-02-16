@@ -41,7 +41,7 @@ public class ShoppingCartController {
         shoppingCartService.addSession(movieSession, user);
     }
 
-    @GetMapping("/by-users")
+    @GetMapping("/by-user")
     public ShoppingCartDtoResponse getByUser(@RequestParam Long id) {
         User user = userService.get(id);
         ShoppingCart shoppingCart = shoppingCartService.getByUser(user);
