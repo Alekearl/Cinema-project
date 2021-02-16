@@ -1,7 +1,6 @@
 package com.dev.cinema.model.dto;
 
 public class MovieDtoRequest {
-    private Long id;
     private String title;
     private String description;
 
