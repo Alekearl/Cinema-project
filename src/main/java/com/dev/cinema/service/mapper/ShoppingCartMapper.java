@@ -13,7 +13,7 @@ public class ShoppingCartMapper {
         response.setTicketIds(shoppingCart.getTickets().stream()
                 .map(Ticket::getId)
                 .collect(Collectors.toList()));
-        response.setUserId(shoppingCart.getId());
+        response.setUserCartId(shoppingCart.getId());
         return response;
     }
 }
