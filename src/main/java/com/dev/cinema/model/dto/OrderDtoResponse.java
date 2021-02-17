@@ -5,7 +5,7 @@ import java.util.List;
 public class OrderDtoResponse {
     private Long id;
     private List<Long> ticketsIds;
-    private String orderDate;
+    private LocalDateTime orderDate;
     private Long userId;
 
     public Long getId() {
