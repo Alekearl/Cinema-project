@@ -5,6 +5,7 @@ import com.dev.cinema.model.dto.MovieDtoRequest;
 import com.dev.cinema.model.dto.MovieDtoResponse;
 import com.dev.cinema.service.MovieService;
 import com.dev.cinema.service.mapper.MovieMapper;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class MovieController {
     }
 
     @PostMapping
-    public void create(@RequestBody MovieDtoRequest request) {
+    public void create(@RequestBody @Valid MovieDtoRequest request) {
         Movie movie = movieMapper.mapFromDto(request);
         movieService.add(movie);
     }

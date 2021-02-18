@@ -5,6 +5,7 @@ import com.dev.cinema.model.dto.MovieSessionDtoRequest;
 import com.dev.cinema.model.dto.MovieSessionDtoResponse;
 import com.dev.cinema.service.MovieSessionService;
 import com.dev.cinema.service.mapper.MovieSessionMapper;
+import jakarta.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,7 +35,7 @@ public class MovieSessionController {
     }
 
     @PostMapping
-    public void create(@RequestBody MovieSessionDtoRequest request) {
+    public void create(@RequestBody @Valid MovieSessionDtoRequest request) {
         MovieSession movieSession = movieSessionMapper.mapFromDto(request);
         movieSessionService.add(movieSession);
     }
