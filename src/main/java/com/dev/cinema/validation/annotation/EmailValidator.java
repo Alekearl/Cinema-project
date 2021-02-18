@@ -5,9 +5,10 @@ import jakarta.validation.ConstraintValidatorContext;
 
 public class EmailValidator implements
         ConstraintValidator<EmailValidatorConstraint, String> {
+    private final String REGEX_MAIL_VALIDATOR = "^(.+)@(.+)$";
     @Override
-    public boolean isValid(String contactField,
-                           ConstraintValidatorContext cxt) {
-        return contactField != null && contactField.matches("^(.+)@(.+)$");
+    public boolean isValid(String emailField,
+                           ConstraintValidatorContext validatorContext) {
+        return emailField != null && emailField.matches(REGEX_MAIL_VALIDATOR);
     }
 }
