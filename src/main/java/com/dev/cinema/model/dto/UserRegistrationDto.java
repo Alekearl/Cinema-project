@@ -2,7 +2,6 @@ package com.dev.cinema.model.dto;
 
 import com.dev.cinema.validation.annotation.EmailValidatorConstraint;
 import com.dev.cinema.validation.annotation.FieldsValueMatch;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @FieldsValueMatch.List({
@@ -14,10 +13,8 @@ import javax.validation.constraints.NotNull;
 })
 public class UserRegistrationDto {
     @NotNull
-    @Min(4)
     private String password;
     @NotNull
-    @Min(4)
     private String verifyPassword;
     @NotNull
     @EmailValidatorConstraint
