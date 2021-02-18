@@ -31,11 +31,11 @@ public class UserRegistrationDto {
         this.password = password;
     }
 
-    public String getPasswordCheck() {
+    public String getVerifyPassword() {
         return verifyPassword;
     }
 
-    public void setPasswordCheck(String passwordCheck) {
+    public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
     }
 
