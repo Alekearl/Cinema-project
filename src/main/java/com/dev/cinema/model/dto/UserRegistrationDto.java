@@ -10,11 +10,6 @@ import jakarta.validation.constraints.NotNull;
                 field = "password",
                 fieldMatch = "verifyPassword",
                 message = "Passwords do not match!"
-        ),
-        @FieldsValueMatch(
-                field = "email",
-                fieldMatch = "verifyEmail",
-                message = "Email addresses do not match!"
         )
 })
 public class UserRegistrationDto {

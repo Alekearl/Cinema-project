@@ -1,9 +1,12 @@
 package com.dev.cinema.model.dto;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 
 public class MovieSessionDtoRequest {
+    @PositiveOrZero
     private Long movieId;
+    @PositiveOrZero
     private Long cinemaHallId;
     @NotNull
     private String showTime;
