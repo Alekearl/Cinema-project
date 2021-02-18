@@ -37,25 +37,17 @@ public class ShoppingCartController {
     }
 
     @PostMapping("/movie-sessions")
-    public void addMovieSession(@RequestParam Authentication authentication,
+    public void addMovieSession(Authentication authentication,
                                 @RequestParam Long movieSessionId) {
-        Object principal = authentication.getPrincipal();
-        UserDetails userDetails = null;
-        if (principal instanceof UserDetails) {
-            userDetails = (UserDetails) principal;
-        }
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         User user = userService.findByEmail(userDetails.getUsername()).get();
         MovieSession movieSession = movieSessionService.get(movieSessionId);
         shoppingCartService.addSession(movieSession, user);
     }
 
     @GetMapping("/by-user")
-    public ShoppingCartDtoResponse getByUser(@RequestParam Authentication authentication) {
-        Object principal = authentication.getPrincipal();
-        UserDetails userDetails = null;
-        if (principal instanceof UserDetails) {
-            userDetails = (UserDetails) principal;
-        }
+    public ShoppingCartDtoResponse getByUser(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         User user = userService.findByEmail(userDetails.getUsername()).get();
         ShoppingCart shoppingCart = shoppingCartService.getByUser(user);
         return shoppingCartMapper.mapToDto(shoppingCart);

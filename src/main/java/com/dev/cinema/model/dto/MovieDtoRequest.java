@@ -1,6 +1,6 @@
 package com.dev.cinema.model.dto;
 
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
 
 public class MovieDtoRequest {
     @NotNull

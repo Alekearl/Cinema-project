@@ -2,8 +2,8 @@ package com.dev.cinema.model.dto;
 
 import com.dev.cinema.validation.annotation.EmailValidatorConstraint;
 import com.dev.cinema.validation.annotation.FieldsValueMatch;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @FieldsValueMatch.List({
         @FieldsValueMatch(
