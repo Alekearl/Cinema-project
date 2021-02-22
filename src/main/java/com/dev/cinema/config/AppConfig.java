@@ -10,13 +10,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @PropertySource("classpath:db.properties")
 @ComponentScan(basePackages = {
         "com.dev.cinema.dao",
         "com.dev.cinema.service",
-        "com.dev.cinema.model"
+        "com.dev.cinema.model",
+        "com.dev.cinema.security"
 })
 public class AppConfig {
     private final Environment environment;
@@ -41,11 +44,16 @@ public class AppConfig {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setDataSource(getDataSource());
         Properties properties = new Properties();
-        properties.put("hibernate.hbm2ddl.auto",environment.getProperty("hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
         properties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
         properties.put("hibernate.dialect", environment.getProperty("hibernate.dialect"));
         factoryBean.setHibernateProperties(properties);
         factoryBean.setPackagesToScan("com.dev.cinema.model");
         return factoryBean;
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
