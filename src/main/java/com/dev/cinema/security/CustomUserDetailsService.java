@@ -7,8 +7,6 @@ import com.dev.cinema.model.User;
 import com.dev.cinema.service.UserService;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
