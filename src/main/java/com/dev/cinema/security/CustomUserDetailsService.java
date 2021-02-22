@@ -7,6 +7,8 @@ import com.dev.cinema.model.User;
 import com.dev.cinema.service.UserService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,7 +25,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findByEmail(username).get();
+        User user = userService.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Something went wrong."
+                        + " Can't find user " + username));
         List<String> roles = new ArrayList<>();
         for (Role role : user.getRoles()) {
             roles.add(role.getRoleName());
