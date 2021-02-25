@@ -1,5 +1,5 @@
 
-#### Cinema
+## Cinema
 
 Project created with using of SOLID principles, also were applied N-tier architecture layers: layer  DB, layer  DAO, layer  Service, Controllers. <br>
 Added authorization and authentication.
