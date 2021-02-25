@@ -1,10 +1,10 @@
 
 #### Cinema
 
-Project created with using of SOLID principles, also were applied N-tier architecture layers: layer  DB, layer  DAO, layer  Service, Controllers. <br>
+Project created with using of SOLID principles, also was applied N-tier architecture layers: layer  DB, layer  DAO, layer  Service, Controllers. <br>
 Added authorization and authentication.
 
-Users can have roles roles and make some actions: <br>
+Users can have roles and make some actions: <br>
 
 #### User role: <br>
 - Add sessions to shopping cart
@@ -38,7 +38,6 @@ Users can have roles roles and make some actions: <br>
 1.Install JDK [JDK](https://www.oracle.com/java/technologies/javase-downloads.html, "Download JDK") <br>
 2.Install Apache Tomcat servlet container [Tomcat](https://tomcat.apache.org/download-90.cgi, "Download Tomcat") <br>
 3.Install MySQL Server [MySQL Server](https://dev.mysql.com/downloads/) <br>
-
 4.Connection setup
 + user: "name"
 + password: "password"
