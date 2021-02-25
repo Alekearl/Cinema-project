@@ -38,8 +38,4 @@ Users can have roles and make some actions: <br>
 1.Install JDK [JDK](https://www.oracle.com/java/technologies/javase-downloads.html, "Download JDK") <br>
 2.Install Apache Tomcat servlet container [Tomcat](https://tomcat.apache.org/download-90.cgi, "Download Tomcat") <br>
 3.Install MySQL Server [MySQL Server](https://dev.mysql.com/downloads/) <br>
-4.Connection setup
-+ user: "name"
-+ password: "password"
-+ url: jdbc:mysql://"host name":"port"/"db"
-+ Run a project
+4.Run project
