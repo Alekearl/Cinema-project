@@ -2,7 +2,7 @@
 #### Cinema
 Prototype of online shop where you can buy tickets for a movie. <br>
 Created according to SOLID principles, also n layered architecture was applied: <br>
-layer  DAO layer for interaction with the database, <br>
+  DAO layer for interaction with the database, <br>
 layer  Services with business logic, layer Controllers to handles user input, creating N-Tire structure. <br>
 Added security with authorization. <br>
 
